@@ -1,0 +1,72 @@
+let history = JSON.parse(localStorage.getItem('history')) || [];
+
+// Funkcija, lai pievienotu vērtību input laukā
+function addToInput(value) {
+    document.getElementById('input').value += value;
+    // Also update the working expression to show current input
+    document.getElementById('working-expression').textContent = document.getElementById('input').value;
+}
+
+// Funkcija, lai iztīrītu input laukumu
+function clearInput() {
+    document.getElementById('input').value = '';
+    // Clear working expression
+    document.getElementById('working-expression').textContent = '';
+}
+
+// Funkcija, lai veiktu aprēķinu
+function calculate() {
+    const inputField = document.getElementById('input');
+    const expression = inputField.value;
+    
+    try {
+        // Aprēķināt izteiksmi
+        const result = eval(expression);
+        inputField.value = result;
+        
+        // Update the working expression area
+        document.getElementById('working-expression').textContent = expression + ' = ' + result;
+        
+        // Saglabāt vēsturē
+        addToHistory(expression + ' = ' + result);
+    } catch (error) {
+        inputField.value = 'Error';
+        document.getElementById('working-expression').textContent = 'Error';
+    }
+}
+
+// Funkcija, lai pievienotu ierakstu vēsturē
+function addToHistory(entry) {
+    history.push(entry);
+    localStorage.setItem('history', JSON.stringify(history));
+    displayHistory();
+}
+
+// Funkcija, lai attēlotu vēsturi
+function displayHistory() {
+    const historyList = document.getElementById('historyList');
+    historyList.innerHTML = '';
+
+    history.forEach((entry, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `${entry} <button onclick="deleteHistoryEntry(${index})">Dzēst</button>`;
+        historyList.appendChild(li);
+    });
+}
+
+// Funkcija, lai dzēstu konkrētu vēstures ierakstu
+function deleteHistoryEntry(index) {
+    history.splice(index, 1);
+    localStorage.setItem('history', JSON.stringify(history));
+    displayHistory();
+}
+
+// Funkcija, lai dzēstu visu vēsturi
+function clearHistory() {
+    history = [];
+    localStorage.removeItem('history');
+    displayHistory();
+}
+
+// Inicializēt vēsturi pēc ielādes
+displayHistory();
