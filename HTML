@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator">
+            <!-- Working area for showing the user's input expression -->
+            <div class="working-area">
+                <p id="working-expression"></p>
+            </div>
+
+            <!-- Display area for the result -->
+            <div class="display">
+                <input type="text" id="input" readonly />
+            </div>
+
+            <div class="buttons-container">
+                <!-- Container for Number Buttons -->
+                <div class="number-buttons">
+                    <div class="button-row">
+                        <button class="btn" onclick="addToInput('1')">1</button>
+                        <button class="btn" onclick="addToInput('2')">2</button>
+                        <button class="btn" onclick="addToInput('3')">3</button>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn" onclick="addToInput('4')">4</button>
+                        <button class="btn" onclick="addToInput('5')">5</button>
+                        <button class="btn" onclick="addToInput('6')">6</button>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn" onclick="addToInput('7')">7</button>
+                        <button class="btn" onclick="addToInput('8')">8</button>
+                        <button class="btn" onclick="addToInput('9')">9</button>
+                    </div>
+                    <div class="button-row">
+                        <button class="btn" onclick="addToInput('0')">0</button>
+                        <button class="btn" onclick="clearInput()">AC</button>
+                        <button class="btn" onclick="calculate()">=</button>
+                    </div>
+                </div>
+
+                <!-- Operators section to the right -->
+                <div class="operator-buttons">
+                    <button class="btn" onclick="addToInput('+')">+</button>
+                    <button class="btn" onclick="addToInput('-')">-</button>
+                    <button class="btn" onclick="addToInput('*')">*</button>
+                    <button class="btn" onclick="addToInput('/')">/</button>
+                </div>
+            </div>
+
+            <!-- History section below the calculator -->
+            <div class="history">
+                <h3>Vēsture</h3>
+                <ul id="historyList"></ul>
+                <button class="clear-history-btn" onclick="clearHistory()">Dzēst visu vēsturi</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
