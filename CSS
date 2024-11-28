@@ -1,0 +1,184 @@
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f1f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.calculator-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.calculator {
+    background: linear-gradient(to right, #f05f9e, #d13e81); /* Sexy pink gradient */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.calculator:hover {
+    transform: scale(1.05);
+}
+
+/* Working area for the current mathematical expression */
+.working-area {
+    margin-bottom: 10px;
+    padding: 15px;
+    font-size: 18px;
+    color: #fff;
+    text-align: right;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+}
+
+/* Display area for result */
+.display {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center the input field */
+}
+
+#input {
+    width: 100%;
+    max-width: 250px; /* Set a maximum width for the input */
+    padding: 15px;
+    font-size: 22px;
+    text-align: right;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: bold;
+}
+
+/* Container for all buttons (numbers and operators) */
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Add consistent gap between number and operator containers */
+    justify-content: center;
+    width: 100%;
+}
+
+/* Number buttons */
+.number-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Consistent gap between rows */
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Consistent gap between buttons in a row */
+}
+
+/* Operator buttons (right aligned) */
+.operator-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Consistent gap between operator buttons */
+    justify-content: center;
+    align-items: center;
+}
+
+button.btn {
+    padding: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border: 1px solid #fff;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect on buttons */
+button.btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Active effect on button */
+button.btn:active {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(0.95);
+}
+
+/* Operator buttons style */
+.operator-buttons button {
+    background-color: #ff3366;
+}
+
+.operator-buttons button:hover {
+    background-color: #ff1e57;
+}
+
+/* History section */
+.history {
+    margin-top: 30px;
+    text-align: left;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    color: #fff;
+}
+
+#historyList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#historyList li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #fff;
+    font-size: 14px;
+}
+
+#historyList li button {
+    padding: 6px;
+    font-size: 12px;
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#historyList li button:hover {
+    background-color: #ff1e57;
+}
+
+.clear-history-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.clear-history-btn:hover {
+    background-color: #ff1e57;
+}
